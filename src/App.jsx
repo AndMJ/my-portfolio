@@ -1,4 +1,4 @@
-import {Box, Button, Container, IconButton, Typography} from "@mui/material";
+import {Box, Button, Container, IconButton, Typography, useMediaQuery} from "@mui/material";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
@@ -8,13 +8,14 @@ import {useState} from "react";
 
 import ContrastIcon from '@mui/icons-material/Contrast';
 
-function App() {
+//TODO: create a useContext for the themes
 
-    const [changeTheme, setChangeTheme] = useState(true) //true = light, false = dark
+function App() {
+    const [mode, setMode] = useState('dark');
 
     const Theme = createTheme({
         palette: {
-            mode: changeTheme ? "light" : "dark"
+            mode,
         },
         typography: {
             fontFamily: [
@@ -27,11 +28,26 @@ function App() {
     return (
         <ThemeProvider theme={Theme}>
             <CssBaseline />
-            <Container>
-                <Box height={"100vh"} width={"100%"} alignContent={"center"} justifyContent={"center"} textAlign={"center"}>
 
+            <Container maxWidth="lg" component={"section"} alignContent={"center"}>
+                <Box display={"flex"} position={"absolute"} top={0} right={0}>
+                    <IconButton onClick={() => setMode((current) => (current === 'light' ? 'dark' : 'light'))}>
+                        <ContrastIcon></ContrastIcon>
+                    </IconButton>
+                </Box>
+                <Box height={"100vh"} alignContent={"center"}>
+                    <Typography variant={"h2"}>Hi, my name is <span style={{fontWeight: "bold"}}>André João</span></Typography>
+                    <Typography variant={"h2"}>I'm a Web Developer <span style={{fontSize: 14}}>or try to.</span></Typography>
                 </Box>
             </Container>
+
+            <Container component={"section"}>
+                <Box height={"100vh"} alignContent={"center"}>
+                    <Typography variant={"h3"} >Resume</Typography>
+                    <Typography variant={"body1"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Typography>
+                </Box>
+            </Container>
+
         </ThemeProvider>
     )
 }
