@@ -5,7 +5,7 @@ const UnderConst = React.lazy(()=> import("./underConstruction/UnderConst.jsx"))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <App />
-        {/*<UnderConst />*/}
+        {/*<App />*/}
+        <UnderConst />
     </React.StrictMode>,
 )
