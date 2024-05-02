@@ -3,69 +3,22 @@ color pallet
 https://coolors.co/palette/121212-003A66-0062AD-0392ea-DEDEDE-f1f1f1-ffffff
 */
 {
+    color: #005387;
+    color: #00223d;
+
     color: #121212;
+
     color: #003A66;
+
     color: #0062AD;
     color: #0392EA;
+    color: #8cc7f4;
     color: #DEDEDE;
     color: #f1f1f1;
     color: #ffffff;
 }
-/*#about-section .section-body:before{
-    z-index: 3;
-    display: block;
-    content: "";
-    position: absolute;
-    top: 5%;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
 
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    border: 2px solid #0062AD;
-    background-color: #f1f1f1;
-    opacity: 1;
-}*/
-
-/*#about-section .section-body:before{
-    z-index: 3;
-    display: block;
-    content: "";
-    position: absolute;
-    top: -25px;
-    left: 64px;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-
-    width: 64px;
-    height: 64px;
-
-    background: url("./static/pin.svg");
-    background-repeat: no-repeat;
-    !*transform: rotate(20deg);*!
-
-    opacity: 1;
-}*/
-
-/*
-#about-section .section-title:after{
-    z-index: -1;
-    display: block;
-    content: "";
-    position: absolute;
-    top: 23%;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-
-    width: 2px;
-    height: 100%;
-    border-radius: 2px;
-    background-color: #0062AD;
-    opacity: 1;
-}*/
+body {
+    overflow-x: hidden;
+    transition: all 0.11s ease-in-out;
+}
