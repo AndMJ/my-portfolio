@@ -25,7 +25,7 @@ function App() {
             ...(mode === "light"
                 ? { //light mode palette
                     primary: {
-                        main: "#0392EA",
+                        main: "#0388da",
                         dark: "#00223d",
                         translucid: "rgba(3,146,234,0.4)",
                     },
@@ -35,8 +35,8 @@ function App() {
                 }
                 : { //dark mode palette
                     primary: {
-                        main: "#005387",
-                        dark: "#00101e",
+                        main: "#004b79",
+                        dark: "#000c17",
                         translucid: "rgba(3,146,234,0.4)",
                     },
                     // background: {
