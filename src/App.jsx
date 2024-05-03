@@ -12,7 +12,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
 
 import "./static/css/water.css"
-/*import "./static/css/clouds.css"*/
+import "./static/css/bubbles.css"
 
 //TODO: create a useContext for the themes
 
@@ -26,7 +26,7 @@ function App() {
                 ? { //light mode palette
                     primary: {
                         main: "#0392EA",
-                        dark: "#0062AD",
+                        dark: "#00223d",
                         translucid: "rgba(3,146,234,0.4)",
                     },
                     // background: {
@@ -36,7 +36,7 @@ function App() {
                 : { //dark mode palette
                     primary: {
                         main: "#005387",
-                        dark: "#00223d",
+                        dark: "#00101e",
                         translucid: "rgba(3,146,234,0.4)",
                     },
                     // background: {
@@ -70,13 +70,13 @@ function App() {
                 'Montserrat',
                 'sans-serif',
             ].join(','),
+            "h2": {
+                fontWeight: "bold"
+            },
             muted: {
                 fontSize: "12px",
                 color: "rgba(255,255,255,0.45)"
             },
-            "h2": {
-                fontWeight: "bold"
-            }
         },
     });
 
@@ -86,15 +86,6 @@ function App() {
         <ThemeProvider theme={Theme}>
             <CssBaseline enableColorScheme/>
 
-            {/* Page Border */}
-            {/*<Box sx={mode === 'light' ? Theme.outlineLight : Theme.outlineDark}
-                 zIndex={1000}
-                 position={"fixed"} top={0} bottom={0} right={0} left={0}
-                 overflow={"hidden"}
-                 border={16}
-                 borderColor={mode === 'light' ? "white" : "#121212"}
-            />*/}
-
             {/* Button toggle light/dark mode */}
             <Box position={"fixed"} bottom={20} right={20} zIndex={1001}>
                 <IconButton onClick={() => setMode((current) => (current === 'light' ? 'dark' : 'light'))}>
@@ -102,24 +93,14 @@ function App() {
                 </IconButton>
             </Box>
 
+            {/* Header */}
             <Box component={"header"} height={"100vh"} alignContent={"center"} >
-                {/*<Box className={"Clouds"}>
-                    <div className="Cloud Foreground"></div>
-                    <div className="Cloud Background"></div>
-                    <div className="Cloud Foreground"></div>
-                    <div className="Cloud Background"></div>
-                    <div className="Cloud Foreground"></div>
-                    <div className="Cloud Background"></div>
-                </Box>*/}
                 <Container maxWidth="lg" position={"relative"}>
-
                     <Typography variant={"h2"}>Hi, my name is <span style={{fontWeight: "bold", color: "#0392EA"}}>André João</span></Typography>
-                    <Typography variant={"h2"}>I'm a Web Developer </Typography> {/*<span
-                        style={{fontSize: 14}}>or try to.</span>*/}
+                    <Typography variant={"h2"}>I'm a Web Developer </Typography>
 
                     <Box position={"absolute"} bottom={0} left={0} right={0}>
-                        <svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28"
-                             preserveAspectRatio="none" shapeRendering="auto">
+                        <svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
                             <defs>
                                 <path id="gentle-wave"
                                       d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
@@ -137,15 +118,31 @@ function App() {
                         </svg>
                     </Box>
                 </Container>
+
             </Box>
 
-            <Box component={"section"} sx={{
-                backgroundImage: `linear-gradient(180deg,${Theme.palette.primary.main}, ${Theme.palette.primary.dark})`,
-                clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 7rem), 0 100%)"
-            }}>
+            {/* Body */}
+            <Box component={"section"} position={"relative"} overflow={"hidden"} sx={{backgroundImage: `linear-gradient(180deg,${Theme.palette.primary.main}, ${Theme.palette.primary.dark})`}}>
+
+                <Box>
+                    <div className="bubble bubble--1"></div>
+                    <div className="bubble bubble--2"></div>
+                    <div className="bubble bubble--3"></div>
+                    <div className="bubble bubble--4"></div>
+                    <div className="bubble bubble--5"></div>
+                    <div className="bubble bubble--6"></div>
+                    <div className="bubble bubble--7"></div>
+                    <div className="bubble bubble--8"></div>
+                    <div className="bubble bubble--9"></div>
+                    <div className="bubble bubble--10"></div>
+                    <div className="bubble bubble--11"></div>
+                    <div className="bubble bubble--12"></div>
+                </Box>
+
+
                 <Container id={"about-section"} maxWidth={"lg"}>
                     <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
-                          pb={"10rem"} alignItems={"start"}>
+                          pb={"5rem"} alignItems={"start"}>
                         <Grid item xs={12} sx={{paddingTop: "0 !important"}}>
                             <Typography className={"section-title"} variant={"h3"} textAlign={"center"}
                                         color={"white"}>About</Typography>
@@ -178,14 +175,13 @@ function App() {
 
                     </Grid>
                 </Container>
-            </Box>
 
-            <Box component={"section"}>
-                <Container id={"about-section"} maxWidth={"lg"}>
+                <Container id={"resume-section"} maxWidth={"lg"}>
                     <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
-                          pb={"10rem"} alignItems={"start"}>
+                          pb={"5rem"} alignItems={"start"} color={"white"}>
                         <Grid item xs={12} sx={{paddingTop: "0 !important"}}>
-                            <Typography className={"section-title"} variant={"h3"} textAlign={"center"}>Resume</Typography>
+                            <Typography className={"section-title"} variant={"h3"}
+                                        textAlign={"center"}>Resume</Typography>
                         </Grid>
                         <Grid item xs={"auto"} className={"resume-block"}>
                             <Typography variant={"h5"}>Educação</Typography>
@@ -196,28 +192,33 @@ function App() {
                                          'content': '""',
                                          width: "16px",
                                          height: "16px",
-                                         border:"2px solid #0392EA",
+                                         border: "2px solid #0392EA",
                                          borderRadius: "20%",
                                          position: "absolute",
                                          top: "8px",
                                          left: "-9px",
                                          backgroundColor: `${Theme.palette.background.default}`
                                      }
-                                }}>
-                                <Typography variant={"h6"} sx={{textTransform: "uppercase", fontWeight: "bold"}}>ESCOLA SECUNDARIA DE SILVES</Typography>
-                                <Typography variant={"subtitle1"} sx={{fontWeight: "bold", backgroundColor: `${Theme.palette.primary.translucid}`, display: "inline", padding: "3px 9px"}}>2016 - 2019</Typography>
-                                <Typography variant={"subtitle1"}>Tecnico de Gestão e Programação de Sistemas Informáticos</Typography>
+                                 }}>
+                                <Typography variant={"h6"} sx={{textTransform: "uppercase", fontWeight: "bold"}}>ESCOLA
+                                    SECUNDARIA DE SILVES</Typography>
+                                <Typography variant={"subtitle1"} sx={{
+                                    fontWeight: "bold",
+                                    backgroundColor: `${Theme.palette.primary.translucid}`,
+                                    display: "inline",
+                                    padding: "3px 9px"
+                                }}>2016 - 2019</Typography>
+                                <Typography variant={"subtitle1"}>Tecnico de Gestão e Programação de Sistemas
+                                    Informáticos</Typography>
                                 <Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}>O que aprendi:</Typography>
                             </Box>
                         </Grid>
                     </Grid>
                 </Container>
-            </Box>
 
-            <Box component={"section"}>
-                <Container id={"about-section"} maxWidth={"lg"}>
+                <Container id={"projects-section"} maxWidth={"lg"}>
                     <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
-                          pb={"10rem"} alignItems={"start"}>
+                          pb={"5rem"} alignItems={"start"} color={"white"}>
                         <Grid item xs={12} sx={{paddingTop: "0 !important"}}>
                             <Typography className={"section-title"} variant={"h3"}
                                         textAlign={"center"}>Projects</Typography>
@@ -276,41 +277,44 @@ function App() {
                         </Grid>
                     </Grid>
                 </Container>
-            </Box>
 
-            <Box component={"footer"} sx={{
-                backgroundImage: `linear-gradient(180deg,${Theme.palette.primary.main}, ${Theme.palette.primary.dark})`,
-                clipPath: "polygon(0 calc((100% + 7rem) - 100%), 100% 0, 100% 100%, 0 100%)"
-            }}>
-                <Container id={"about-section"} maxWidth={"lg"}>
-                    <Grid position={"relative"} container spacing={5} marginTop={0} pt={"5rem"} pb={"2rem"}
-                          color={"white"} alignItems={"start"} justifyContent={"center"}>
-                        {/*<Grid item xs={12} sx={{paddingTop: "0 !important"}}>
+                {/* Footer */}
+                <Box component={"footer"} sx={{}}>
+                    <Container maxWidth={"lg"}>
+                        <Grid position={"relative"} container spacing={5} marginTop={0} pt={"2rem"} pb={"2rem"}
+                              color={"white"} alignItems={"start"} justifyContent={"center"}>
+                            {/*<Grid item xs={12} sx={{paddingTop: "0 !important"}}>
                             <Typography className={"section-title"} variant={"h3"} textAlign={"center"}>Contacts</Typography>
                         </Grid>*/}
-                        <Grid item xs={"auto"} textAlign={"center"}>
-                            <Link sx={{display: "block", "&:hover": {transform: "translateY(-3px)"}}} target={"_blank"}
-                                  rel={"noreferrer noopener"} href={"https://github.com/AndMJ"}><GitHubIcon/></Link>
+                            <Grid item xs={"auto"} textAlign={"center"}>
+                                <Link sx={{display: "block", "&:hover": {transform: "translateY(-3px)"}}}
+                                      target={"_blank"}
+                                      rel={"noreferrer noopener"} href={"https://github.com/AndMJ"}><GitHubIcon/></Link>
+                            </Grid>
+                            <Grid item xs={"auto"} textAlign={"center"}>
+                                <Link sx={{display: "block", "&:hover": {transform: "translateY(-3px)"}}}
+                                      target={"_blank"}
+                                      rel={"noreferrer noopener"}
+                                      href={"https://www.linkedin.com/in/andre-joao/"}><LinkedInIcon/></Link>
+                            </Grid>
+                            <Grid item xs={"auto"} textAlign={"center"}>
+                                <Link sx={{display: "block", "&:hover": {transform: "translateY(-3px)"}}}
+                                      target={"_blank"}
+                                      rel={"noreferrer noopener"}
+                                      href={"mailto:andrejoao070@gmail.com"}><SendIcon/></Link>
+                            </Grid>
+                            <Grid item xs={12} textAlign={"center"}>
+                                <Typography variant={"muted"}>
+                                    &copy; {new Date().getFullYear()} · Made by <Link
+                                    sx={{color: "inherit", "&:hover": {color: "#fff"}}} target={"_blank"}
+                                    rel={"noreferrer noopener"} href={"https://github.com/AndMJ"}>André João</Link>
+                                </Typography>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={"auto"} textAlign={"center"}>
-                            <Link sx={{display: "block", "&:hover": {transform: "translateY(-3px)"}}} target={"_blank"}
-                                  rel={"noreferrer noopener"}
-                                  href={"https://www.linkedin.com/in/andre-joao/"}><LinkedInIcon/></Link>
-                        </Grid>
-                        <Grid item xs={"auto"} textAlign={"center"}>
-                            <Link sx={{display: "block", "&:hover": {transform: "translateY(-3px)"}}} target={"_blank"}
-                                  rel={"noreferrer noopener"} href={"mailto:andrejoao070@gmail.com"}><SendIcon/></Link>
-                        </Grid>
-                        <Grid item xs={12} textAlign={"center"}>
-                            <Typography variant={"muted"}>
-                                &copy; {new Date().getFullYear()} · Made by <Link
-                                sx={{color: "inherit", "&:hover": {color: "#fff"}}} target={"_blank"}
-                                rel={"noreferrer noopener"} href={"https://github.com/AndMJ"}>André João</Link>
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                </Container>
+                    </Container>
+                </Box>
             </Box>
+
         </ThemeProvider>
     )
 }
