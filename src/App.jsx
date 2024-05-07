@@ -11,6 +11,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import SendIcon from '@mui/icons-material/Send';
 
+import AboutPhoto from "./static/image/me.png"
 import "./static/css/water.css"
 import "./static/css/bubbles.css"
 
@@ -25,6 +26,7 @@ function App() {
             ...(mode === "light"
                 ? { //light mode palette
                     primary: {
+                        detail: "#0388da",
                         main: "#0388da",
                         dark: "#00223d",
                         translucid: "rgba(3,146,234,0.4)",
@@ -35,6 +37,7 @@ function App() {
                 }
                 : { //dark mode palette
                     primary: {
+                        detail: "#0388da",
                         main: "#004b79",
                         dark: "#000c17",
                         translucid: "rgba(3,146,234,0.4)",
@@ -77,6 +80,10 @@ function App() {
                 fontSize: "12px",
                 color: "rgba(255,255,255,0.45)"
             },
+            h3:{
+                fontSize: "2.5em",
+                textTransform: "uppercase"
+            }
         },
     });
 
@@ -96,8 +103,8 @@ function App() {
             {/* Header */}
             <Box component={"header"} height={"100vh"} alignContent={"center"} >
                 <Container maxWidth="lg" position={"relative"}>
-                    <Typography variant={"h2"}>Hi, my name is <span style={{fontWeight: "bold", color: "#0392EA"}}>André João</span></Typography>
-                    <Typography variant={"h2"}>I'm a Web Developer </Typography>
+                    <Typography variant={"h2"} sx={{color: Theme.palette.primary.detail}}>André João</Typography>
+                    <Typography variant={"h2"}>Desenvolvimento Web</Typography>
 
                     <Box position={"absolute"} bottom={0} left={0} right={0}>
                         <svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
@@ -142,35 +149,62 @@ function App() {
 
                 <Container id={"about-section"} maxWidth={"lg"}>
                     <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
-                          pb={"5rem"} alignItems={"start"}>
+                          pb={"5rem"} alignItems={"center"}>
                         <Grid item xs={12} sx={{paddingTop: "0 !important"}}>
-                            <Typography className={"section-title"} variant={"h3"} textAlign={"center"}
-                                        color={"white"}>About</Typography>
+                            <Typography className={"section-title"} variant={"h3"} textAlign={"center"} color={"white"}>Sobre</Typography>
                         </Grid>
 
-                        <Grid item xs={12} md={6} textAlign={"center"}>
-                            <Box component={"img"} src={"https://placehold.co/350x350"}
+                        <Grid item xs={12} md={4} textAlign={"center"}>
+                            <Box component={"img"} src={AboutPhoto} borderRadius={"50%"}
                                  sx={{
-                                     width: "350px",
+                                     width: "264px",
                                      /*maxHeight: { xs: 233, md: 167 },
                                      maxWidth: { xs: 350, md: 350 },*/
                                  }}>
                             </Box>
                         </Grid>
 
-                        <Grid position={"relative"} item xs={12} md={6}>
-                            <Typography p={5} color={"white"} className={"section-body"} variant={"body1"}
-                                        textAlign={"justify"}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur.
-                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                mollit anim id est laborum.
-                            </Typography>
+                        <Grid position={"relative"} item xs={12} md={8}>
+                            <Grid container spacing={3}>
+                                <Grid item xs={"auto"}>
+                                    <Box className={"icon-link"}>
+                                        <Link display={"flex"} alignItems={"center"} target={"_blank"} rel={"noreferrer noopener"} href={"https://github.com/AndMJ"}>
+                                            <Box className={"icon"} sx={{display: "inline-block"}}><GitHubIcon /></Box>
+                                            <Typography pl={2} display={"inline-block"}>AndMJ</Typography>
+                                        </Link>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={"auto"}>
+                                    <Box className={"icon-link"}>
+                                        <Link display={"flex"} alignItems={"center"} target={"_blank"} rel={"noreferrer noopener"} href={"https://www.linkedin.com/in/andre-joao/"}>
+                                            <Box className={"icon"} sx={{display: "inline-block"}}><LinkedInIcon/></Box>
+                                            <Typography pl={2} display={"inline-block"}>andre-joao</Typography>
+                                        </Link>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={"auto"}>
+                                    <Box className={"icon-link"}>
+                                        <Link display={"flex"} alignItems={"center"} target={"_blank"} rel={"noreferrer noopener"} href={"mailto:andrejoao070@gmail.com"}>
+                                            <Box className={"icon"} sx={{display: "inline-block"}}><SendIcon/></Box>
+                                            <Typography pl={2} display={"inline-block"}>andrejoao070@gmail.com</Typography>
+                                        </Link>
+                                    </Box>
+                                </Grid>
+                                <Grid item xs={"auto"}>
+                                    <Typography color={"white"} variant={"h6"} sx={{fontStyle: "italic"}}>Licenciatura em Engenharia informática</Typography>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"}>
+                                        Para além do que abordei nos estudos, HTML, CSS, Javascript, PHP, etc, tenho
+                                        vindo a aprender outras tecnologias de programação web, como:
+                                        React.js, Node Express, Java Spring Boot, AppWrite; Para
+                                        Frontend: Framework Bootstrap, React Material UI;
+                                        <br/>
+                                        <br/>
+                                        <span style={{fontSize: "14px"}}> MVC (Model View Controller) | JetBrains Webstorm | Postman | Git </span>
+                                    </Typography>
+                                </Grid>
+                            </Grid>
                         </Grid>
 
                     </Grid>
@@ -180,11 +214,11 @@ function App() {
                     <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
                           pb={"5rem"} alignItems={"start"} color={"white"}>
                         <Grid item xs={12} sx={{paddingTop: "0 !important"}}>
-                            <Typography className={"section-title"} variant={"h3"}
-                                        textAlign={"center"}>Resume</Typography>
+                            <Typography className={"section-title"} variant={"h3"} textAlign={"center"}>Curriculum</Typography>
                         </Grid>
-                        <Grid item xs={"auto"} className={"resume-block"}>
-                            <Typography variant={"h5"}>Educação</Typography>
+
+                        <Grid item xs={12} md={6} className={"resume-block"} sx={{flexShrink: "1 !important"}}>
+                            <Typography variant={"h5"}>Experiencia Profissional</Typography>
                             <Box borderLeft={"2px solid #0392EA"} pl={"16px"} position={"relative"}
                                  sx={{
                                      "&:before": {
@@ -200,19 +234,131 @@ function App() {
                                          backgroundColor: `${Theme.palette.background.default}`
                                      }
                                  }}>
-                                <Typography variant={"h6"} sx={{textTransform: "uppercase", fontWeight: "bold"}}>ESCOLA
-                                    SECUNDARIA DE SILVES</Typography>
+                                <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://www.apricot.ie/"}>Apricot.ie</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Irlanda</span></Typography>
+                                <Typography variant={"subtitle1"} sx={{
+                                    fontWeight: "bold",
+                                    backgroundColor: `${Theme.palette.primary.translucid}`,
+                                    display: "inline",
+                                    padding: "3px 9px"
+                                }}>18/08/2023 - 02/2024</Typography>
+                                <Typography variant={"subtitle1"}>Programador web (Remote, Freelance)</Typography>
+                                {/*<Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}></Typography>*/}
+                                <Typography variant={"subtitle1"}>Construção de Frontends com base em designs feitos em Figma</Typography>
+                            </Box>
+
+                            <Box borderLeft={"2px solid #0392EA"} pl={"16px"} position={"relative"}
+                                 sx={{
+                                     "&:before": {
+                                         display: "block",
+                                         'content': '""',
+                                         width: "16px",
+                                         height: "16px",
+                                         border: "2px solid #0392EA",
+                                         borderRadius: "20%",
+                                         position: "absolute",
+                                         top: "8px",
+                                         left: "-9px",
+                                         backgroundColor: `${Theme.palette.background.default}`
+                                     }
+                                 }}>
+                                <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://strong-answer.com/"}>Strong Answer</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Lagoa</span></Typography>
+                                <Typography variant={"subtitle1"} sx={{
+                                    fontWeight: "bold",
+                                    backgroundColor: `${Theme.palette.primary.translucid}`,
+                                    display: "inline",
+                                    padding: "3px 9px"
+                                }}>05/2019 - 07/2019</Typography>
+                                <Typography variant={"subtitle1"}>Programador web (estágio escolar) - Algarve/Lagoa</Typography>
+                                {/*<Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}></Typography>*/}
+                                <Typography variant={"subtitle1"}>Aprendi a usar a framework MJML para a construção de emails responsivos e trabalhei com HTML, CSS e
+                                    Javascript.</Typography>
+                            </Box>
+
+                            <Box borderLeft={"2px solid #0392EA"} pl={"16px"} position={"relative"}
+                                 sx={{
+                                     "&:before": {
+                                         display: "block",
+                                         'content': '""',
+                                         width: "16px",
+                                         height: "16px",
+                                         border: "2px solid #0392EA",
+                                         borderRadius: "20%",
+                                         position: "absolute",
+                                         top: "8px",
+                                         left: "-9px",
+                                         backgroundColor: `${Theme.palette.background.default}`
+                                     }
+                                 }}>
+                                <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://strong-answer.com/"}>Strong Answer</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Lagoa</span></Typography>
+                                <Typography variant={"subtitle1"} sx={{
+                                    fontWeight: "bold",
+                                    backgroundColor: `${Theme.palette.primary.translucid}`,
+                                    display: "inline",
+                                    padding: "3px 9px"
+                                }}>05/2018 - 07/2018</Typography>
+                                <Typography variant={"subtitle1"}>Programador web (estágio escolar) - Algarve/Lagoa</Typography>
+                                {/*<Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}></Typography>*/}
+                                <Typography variant={"subtitle1"}>Aprendi a usar linguagens Web como HTML e CSS, e um pouco de Javascript e PHP.</Typography>
+                            </Box>
+
+                        </Grid>
+
+                        <Grid item xs={12} md={6} className={"resume-block"} sx={{flexShrink: "1 !important"}}>
+                            <Typography variant={"h5"}>Educação e Formação</Typography>
+                            <Box borderLeft={"2px solid #0392EA"} pl={"16px"} position={"relative"}
+                                 sx={{
+                                     "&:before": {
+                                         display: "block",
+                                         'content': '""',
+                                         width: "16px",
+                                         height: "16px",
+                                         border: "2px solid #0392EA",
+                                         borderRadius: "20%",
+                                         position: "absolute",
+                                         top: "8px",
+                                         left: "-9px",
+                                         backgroundColor: `${Theme.palette.background.default}`
+                                     }
+                                 }}>
+                                <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://www.ismat.pt"}>ISMAT - Instituto Superior Manuel Teixeira Gomes</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Portimão</span></Typography>
+                                <Typography variant={"subtitle1"} sx={{
+                                    fontWeight: "bold",
+                                    backgroundColor: `${Theme.palette.primary.translucid}`,
+                                    display: "inline",
+                                    padding: "3px 9px"
+                                }}>2019 - 2022</Typography>
+                                <Typography variant={"subtitle1"}>Licenciatura em Engenharia informática</Typography>
+                                {/*<Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}>O que aprendi:</Typography>*/}
+                            </Box>
+
+                            <Box borderLeft={"2px solid #0392EA"} pl={"16px"} position={"relative"}
+                                 sx={{
+                                     "&:before": {
+                                         display: "block",
+                                         'content': '""',
+                                         width: "16px",
+                                         height: "16px",
+                                         border: "2px solid #0392EA",
+                                         borderRadius: "20%",
+                                         position: "absolute",
+                                         top: "8px",
+                                         left: "-9px",
+                                         backgroundColor: `${Theme.palette.background.default}`
+                                     }
+                                 }}>
+                                <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://www.aesilves.pt"}>Escola Secundária de Silves</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Silves</span></Typography>
                                 <Typography variant={"subtitle1"} sx={{
                                     fontWeight: "bold",
                                     backgroundColor: `${Theme.palette.primary.translucid}`,
                                     display: "inline",
                                     padding: "3px 9px"
                                 }}>2016 - 2019</Typography>
-                                <Typography variant={"subtitle1"}>Tecnico de Gestão e Programação de Sistemas
-                                    Informáticos</Typography>
-                                <Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}>O que aprendi:</Typography>
+                                <Typography variant={"subtitle1"}>Tecnico de Gestão e Programação de Sistemas Informáticos</Typography>
+                                {/*<Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}>O que aprendi:</Typography>*/}
                             </Box>
+
                         </Grid>
+
                     </Grid>
                 </Container>
 
@@ -220,8 +366,7 @@ function App() {
                     <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
                           pb={"5rem"} alignItems={"start"} color={"white"}>
                         <Grid item xs={12} sx={{paddingTop: "0 !important"}}>
-                            <Typography className={"section-title"} variant={"h3"}
-                                        textAlign={"center"}>Projects</Typography>
+                            <Typography className={"section-title"} variant={"h3"} textAlign={"center"}>Projetos</Typography>
                         </Grid>
                         <Grid item xs={12} md={12}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
