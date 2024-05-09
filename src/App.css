@@ -20,7 +20,7 @@ https://coolors.co/palette/121212-003A66-0062AD-0392ea-DEDEDE-f1f1f1-ffffff
 
 body {
     overflow-x: hidden;
-    transition: all 0.11s ease-in-out ;
+    transition: all 0.11s ease-in-out;
 }
 
 .icon-link{
@@ -32,3 +32,20 @@ body {
 .icon-link:hover .icon{
     transform: translateY(-3px);
 }
+
+/*PROJECTS SECTION*/
+#project-section .project-card .text{
+    transition: opacity 0.11s ease-in-out;
+    cursor: default;
+    opacity: 0;
+}
+#project-section .project-card:hover .text{
+    opacity: 1;
+}
+
+#project-section .project-card .overlay{
+    transition: background-color 0.11s ease-in-out;
+}
+#project-section .project-card:hover .overlay{
+     background-color: rgba(0, 34, 61, 0.25);
+ }
