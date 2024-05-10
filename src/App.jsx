@@ -4,7 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 import "@fontsource/montserrat"
 import "./App.css"
-import React, { useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import ContrastIcon from '@mui/icons-material/Contrast';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -25,7 +25,7 @@ const Footer = React.lazy(() => import("./components/sections/footer/Footer.jsx"
 //TODO: create a useContext for the themes
 
 function App() {
-    const [mode, setMode] = useState('light');
+    const [mode, setMode] = useState('dark');
 
     const Theme = createTheme({
         palette: {
@@ -94,17 +94,12 @@ function App() {
         },
     });
 
-
+    useEffect(() => { //dynamically change page favicon based on Theme mode
+        document.querySelector("link[rel~='icon']").href = mode === "light" ? "/iconLight.ico" : "/iconDark.ico";
+    },[mode])
 
     return (
         <>
-            <Helmet>
-                <meta charSet="UTF-8"/>
-                <link rel="icon" href={mode === "light" ? "/iconWhite.ico" : "/iconDark.ico"} />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <title>André João | PT</title>
-            </Helmet>
-
             <ThemeProvider theme={Theme}>
                 <CssBaseline enableColorScheme/>
 
