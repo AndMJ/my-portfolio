@@ -34,18 +34,20 @@ body {
 }
 
 /*PROJECTS SECTION*/
-#project-section .project-card .text{
+/*#project-section .project-card .text{
     transition: opacity 0.11s ease-in-out;
     cursor: default;
     opacity: 0;
 }
 #project-section .project-card:hover .text{
     opacity: 1;
-}
+}*/
 
-#project-section .project-card .overlay{
-    transition: background-color 0.11s ease-in-out;
-}
+/*#project-section .project-card .overlay{
+    !*transition: background-color 0.11s ease-in-out;*!
+    background-color: rgba(0, 34, 61, 0.25);
+}*/
+/*
 #project-section .project-card:hover .overlay{
      background-color: rgba(0, 34, 61, 0.25);
- }
+}*/
