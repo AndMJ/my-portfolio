@@ -1,8 +1,53 @@
 /*
-color pallets
-https://coolors.co/palette/121212-0084eb-0392ea-919191-dedede-ffffff
-
-https://coolors.co/3e78b2-004ba8-4a525a-24272b-07070a
-https://coolors.co/palette/353535-3c6e71-ffffff-d9d9d9-284b63
-https://coolors.co/palette/393d3f-fdfdff-c6c5b9-62929e-546a7b
+color pallet
+https://coolors.co/palette/121212-003A66-0062AD-0392ea-DEDEDE-f1f1f1-ffffff
 */
+{
+    color: #005387;
+    color: #00223d;
+
+    color: #121212;
+
+    color: #003A66;
+
+    color: #0062AD;
+    color: #0392EA;
+    color: #8cc7f4;
+    color: #DEDEDE;
+    color: #f1f1f1;
+    color: #ffffff;
+}
+
+body {
+    overflow-x: hidden;
+    transition: all 0.11s ease-in-out;
+}
+
+.icon-link{
+    color: white;
+}
+.icon{
+    transition: all .15s ease-in-out;
+}
+.icon-link:hover .icon{
+    transform: translateY(-3px);
+}
+
+/*PROJECTS SECTION*/
+/*#project-section .project-card .text{
+    transition: opacity 0.11s ease-in-out;
+    cursor: default;
+    opacity: 0;
+}
+#project-section .project-card:hover .text{
+    opacity: 1;
+}*/
+
+/*#project-section .project-card .overlay{
+    !*transition: background-color 0.11s ease-in-out;*!
+    background-color: rgba(0, 34, 61, 0.25);
+}*/
+/*
+#project-section .project-card:hover .overlay{
+     background-color: rgba(0, 34, 61, 0.25);
+}*/

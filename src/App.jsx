@@ -1,12 +1,26 @@
-import {Box, Button, Container, Fab, Grid, Icon, IconButton, Typography, useMediaQuery} from "@mui/material";
+import {Box, Button, Container, Divider, Fab, Grid, Icon, IconButton, Link, Typography} from "@mui/material";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 import "@fontsource/montserrat"
 import "./App.css"
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import ContrastIcon from '@mui/icons-material/Contrast';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import SendIcon from '@mui/icons-material/Send';
+
+import AboutPhoto from "./static/image/me.png"
+import "./static/css/water.css"
+import "./static/css/bubbles.css"
+
+import {Helmet} from "react-helmet";
+const Hero = React.lazy(() => import("./components/sections/hero/Hero.jsx"))
+const About = React.lazy(() => import("./components/sections/about/About.jsx"))
+const Resume = React.lazy(() => import("./components/sections/resume/Resume.jsx"))
+const Projects = React.lazy(() => import("./components/sections/projects/Projects.jsx"))
+const Footer = React.lazy(() => import("./components/sections/footer/Footer.jsx"))
 
 //TODO: create a useContext for the themes
 
@@ -16,73 +30,105 @@ function App() {
     const Theme = createTheme({
         palette: {
             mode,
+            ...(mode === "light"
+                ? { //light mode palette
+                    primary: {
+                        detail: "#0388da",
+                        main: "#0388da",
+                        dark: "#00223d",
+                        translucid: "rgba(3,146,234,0.4)",
+                    },
+                    // background: {
+                    //     default: "#87CEFA",
+                    // }
+                }
+                : { //dark mode palette
+                    primary: {
+                        detail: "#0388da",
+                        main: "#004b79",
+                        dark: "#000c17",
+                        translucid: "rgba(3,146,234,0.4)",
+                    },
+                    // background: {
+                    //     default: "#121416",
+                    // }
+                }
+            )
+        },
+        components: {
+            MuiLink: {
+                styleOverrides: {
+                    root: ({ theme }) =>
+                        theme.unstable_sx({
+                            textDecoration: "none",
+                            color: "#fff",
+                            transition: "all .15s ease-in-out",
+                            /*"&:hover" : {
+                                //color: "#0392EA"
+                            }*/
+                        }),
+                },
+            },
+            MuiButtonBase: {
+                defaultProps: {
+                    disableRipple: true,
+                },
+            },
         },
         typography: {
             fontFamily: [
                 'Montserrat',
                 'sans-serif',
             ].join(','),
+            "h2": {
+                fontWeight: "bold"
+            },
+            muted: {
+                fontSize: "12px",
+                color: "rgba(255,255,255,0.45)"
+            },
+            h3:{
+                fontSize: "2.5em",
+                textTransform: "uppercase"
+            }
         },
     });
 
+    useEffect(() => { //dynamically change page favicon based on Theme mode
+        document.querySelector("link[rel~='icon']").href = mode === "light" ? "/iconLight.ico" : "/iconDark.ico";
+    },[mode])
+
     return (
-        <ThemeProvider theme={Theme}>
-            <CssBaseline enableColorScheme />
+        <>
+            <ThemeProvider theme={Theme}>
+                <CssBaseline enableColorScheme/>
 
-            {/* Button toggle light/dark mode */}
-            <Box position={"fixed"} bottom={10} right={10}>
-                <IconButton onClick={() => setMode((current) => (current === 'light' ? 'dark' : 'light'))}>
-                    <ContrastIcon></ContrastIcon>
-                </IconButton>
-            </Box>
+                <Hero mode={mode} setMode={setMode} Theme={Theme}/>
 
-            <Container maxWidth="lg" component={"main"} alignContent={"center"}>
-                <Box height={"100vh"} alignContent={"center"}>
-                    <Typography variant={"h2"}>Hi, my name is <span style={{fontWeight: "bold", color: "#0392EA"}}>André João</span></Typography>
-                    <Typography variant={"h2"}>I'm a Web Developer <span style={{fontSize: 14}}>or try to.</span></Typography>
-                </Box>
-            </Container>
-
-            {/*<Container component={"section"}>
-                <Box height={"100vh"} display={"flex"}>
-                    <Box alignContent={"center"} height={"100%"} style={{rotate: "-90deg"}}>
-                        <Typography variant={"h3"} >Resume</Typography>
+                {/* Body */}
+                <Box component={"section"} position={"relative"} overflow={"hidden"} sx={{backgroundImage: `linear-gradient(180deg,${Theme.palette.primary.main}, ${Theme.palette.primary.dark})`}}>
+                    <Box id={"underwater-bubbles"}>
+                        <div className="bubble bubble--1"></div>
+                        <div className="bubble bubble--2"></div>
+                        <div className="bubble bubble--3"></div>
+                        <div className="bubble bubble--4"></div>
+                        <div className="bubble bubble--5"></div>
+                        <div className="bubble bubble--6"></div>
+                        <div className="bubble bubble--7"></div>
+                        <div className="bubble bubble--8"></div>
+                        <div className="bubble bubble--9"></div>
+                        <div className="bubble bubble--10"></div>
+                        <div className="bubble bubble--11"></div>
+                        <div className="bubble bubble--12"></div>
                     </Box>
-                    <Box alignContent={"center"}>
-
-                        <Typography variant={"body1"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Typography>
-                    </Box>
+                    <About mode={mode} setMode={setMode} Theme={Theme}/>
+                    <Resume mode={mode} setMode={setMode} Theme={Theme}/>
+                    <Projects mode={mode} setMode={setMode} Theme={Theme}/>
+                    <Footer />
                 </Box>
-            </Container>*/}
 
-            <Grid container spacing={2} height={"100vh"} mt={0}>
-                <Grid xs={2} alignContent={"start"} p={5}>
-                    <Typography variant={"h3"} style={{writingMode: "vertical-lr"}} position={"sticky"} top={30}>About</Typography>
-                </Grid>
-                <Grid xs={10} alignContent={"start"} p={5}>
-                    <Typography variant={"body1"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Typography>
-                </Grid>
-            </Grid>
-
-            <Grid container spacing={2} height={"100vh"} mt={0}>
-                <Grid xs={2} alignContent={"start"} p={5}>
-                    <Typography variant={"h3"} style={{writingMode: "vertical-lr"}} position={"sticky"} top={30}>Resume</Typography>
-                </Grid>
-                <Grid xs={10} alignContent={"start"} p={5}>
-                    <Typography variant={"body1"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Typography>
-                </Grid>
-            </Grid>
-
-            <Grid container spacing={2} height={"100vh"} mt={0}>
-                <Grid xs={2} alignContent={"start"} p={5}>
-                    <Typography variant={"h3"} style={{writingMode: "vertical-lr"}} position={"sticky"} top={30}>Projects</Typography>
-                </Grid>
-                <Grid xs={10} alignContent={"start"} p={5}>
-                    <Typography variant={"body1"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Typography>
-                </Grid>
-            </Grid>
-
-        </ThemeProvider>
+            </ThemeProvider>
+        </>
     )
 }
 
