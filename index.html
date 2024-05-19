@@ -1,12 +1,19 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: https://ogp.me/ns#">
   <!--using head/meta from React Helmet-->
   <meta charSet="UTF-8"/>
   <link rel="icon" href="/iconLight.ico"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>André João | PT</title>
+  <title>André João | Portfolio</title>
+
+  <meta property="og:title" content="André João | Portfolio" />
+  <meta property="og:image" content="/me.png" />
+  <meta property="og:image_alt" content="photo of me" />
+  <meta property="og:url" content="https://andrejoao.on.fleek.co/" />
+
+  <!-- Devivons -->
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-<!--  <link rel="stylesheet" type='text/css' href="./src/static/css/devicon.min.css" />-->
+
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
