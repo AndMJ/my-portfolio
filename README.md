@@ -1,5 +1,9 @@
-# React + Vite
+# My Portfolio repo
+Made using React Material UI. Also, using github API, it fetches my repos for showcase.
 
+<br><br>
+
+# React + Vite
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
