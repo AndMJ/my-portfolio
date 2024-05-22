@@ -69,6 +69,14 @@ function App() {
                         }),
                 },
             },
+            MuiChip: {
+                styleOverrides: {
+                    root: ({ theme }) =>
+                        theme.unstable_sx({
+                            color: "#fff",
+                        }),
+                },
+            },
             MuiButtonBase: {
                 defaultProps: {
                     disableRipple: true,
