@@ -52,14 +52,14 @@ const About = ({mode, setMode, Theme}) => {
                                 </Box>
                             </Grid>
                             <Grid item xs={"auto"}>
-                                <Typography color={"white"} variant={"h6"} sx={{fontStyle: "italic"}}>Licenciatura em Engenharia informática</Typography>
+                                <Typography color={"white"} variant={"h6"} sx={{fontStyle: "italic"}}>Licenciatura em Engenharia Informática</Typography>
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"}>
                                     Tenho um curso profissional em imformática, onde abordei algumas áreas e linguagens como <Chip label="C" variant="filled" size="small"/>, <Chip label="C#" variant="filled" size="small"/> e <Chip label="SQL" variant="filled" size="small"/>. Também utilizei as linguagens Web <Chip label="HTML" variant="filled" size="small"/>, <Chip label="Javascript" variant="filled" size="small"/> e <Chip label="CSS" variant="filled" size="small"/>, e ainda <Chip label="PHP" variant="filled" size="small"/>.
                                 </Typography>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"} mt={1}>
-                                    Depois segui para uma Licenciatura em Engenharia informática onde aprofundei as várias áreas. Abordei linguagens como <Chip label="C" variant="filled" size="small"/>, <Chip label="Python" variant="filled" size="small"/>, <Chip label="Java" variant="filled" size="small"/>, <Chip label="SQL" variant="filled" size="small"/>, e frameworks/libraries como <Chip label="Flask" variant="filled" size="small"/>, <Chip label="JQuery" variant="filled" size="small"/> e <Chip label="Tree.js" variant="filled" size="small"/>.
+                                    Depois segui para uma Licenciatura em Engenharia Informática onde aprofundei as várias áreas. Abordei linguagens como <Chip label="C" variant="filled" size="small"/>, <Chip label="Python" variant="filled" size="small"/>, <Chip label="Java" variant="filled" size="small"/>, <Chip label="SQL" variant="filled" size="small"/>, e frameworks/libraries como <Chip label="Flask" variant="filled" size="small"/>, <Chip label="JQuery" variant="filled" size="small"/> e <Chip label="Tree.js" variant="filled" size="small"/>.
                                 </Typography>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"} mt={1}>
                                     Para além dos estudos, tenho vindo a aprender outras tecnologias de programação Web, como: <Chip label="React.js" variant="filled" size="small"/>, <Chip label="Node Express" variant="filled" size="small"/>, <Chip label="Java Spring Boot" variant="filled" size="small"/>, <Chip label="AppWrite" variant="filled" size="small"/>, <Chip label="SQL" variant="filled" size="small"/>, <Chip label="React Material UI" variant="filled" size="small"/>, <Chip label="Bootstrap" variant="filled" size="small"/>.
