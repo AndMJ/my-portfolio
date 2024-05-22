@@ -121,7 +121,7 @@ const Resume = ({mode, setMode, Theme}) => {
                                 display: "inline",
                                 padding: "3px 9px"
                             }}>2019 - 2022</Typography>
-                            <Typography variant={"subtitle1"}>Licenciatura em Engenharia informática</Typography>
+                            <Typography variant={"subtitle1"}>Licenciatura em Engenharia Informática</Typography>
                             {/*<Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}>O que aprendi:</Typography>*/}
                         </Box>
 
