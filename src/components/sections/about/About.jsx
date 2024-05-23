@@ -56,7 +56,7 @@ const About = ({mode, setMode, Theme}) => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"}>
-                                    Tenho um curso profissional em imformática, onde abordei algumas áreas e linguagens como <Chip label="C" variant="filled" size="small"/>, <Chip label="C#" variant="filled" size="small"/> e <Chip label="SQL" variant="filled" size="small"/>. Também utilizei as linguagens Web <Chip label="HTML" variant="filled" size="small"/>, <Chip label="Javascript" variant="filled" size="small"/> e <Chip label="CSS" variant="filled" size="small"/>, e ainda <Chip label="PHP" variant="filled" size="small"/>.
+                                    Tenho um curso profissional em informática, onde abordei algumas áreas e linguagens como <Chip label="C" variant="filled" size="small"/>, <Chip label="C#" variant="filled" size="small"/> e <Chip label="SQL" variant="filled" size="small"/>. Também utilizei as linguagens Web <Chip label="HTML" variant="filled" size="small"/>, <Chip label="Javascript" variant="filled" size="small"/> e <Chip label="CSS" variant="filled" size="small"/>, e ainda <Chip label="PHP" variant="filled" size="small"/>.
                                 </Typography>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"} mt={1}>
                                     Depois segui para uma Licenciatura em Engenharia Informática onde aprofundei as várias áreas. Abordei linguagens como <Chip label="C" variant="filled" size="small"/>, <Chip label="Python" variant="filled" size="small"/>, <Chip label="Java" variant="filled" size="small"/>, <Chip label="SQL" variant="filled" size="small"/>, e frameworks/libraries como <Chip label="Flask" variant="filled" size="small"/>, <Chip label="JQuery" variant="filled" size="small"/> e <Chip label="Tree.js" variant="filled" size="small"/>.
@@ -74,6 +74,9 @@ const About = ({mode, setMode, Theme}) => {
                                     </Grid>
                                     <Grid item xs={"auto"}>
                                         <Chip label="Postman" variant="filled" size="small"/>
+                                    </Grid>
+                                    <Grid item xs={"auto"}>
+                                        <Chip label="Git" variant="filled" size="small"/>
                                     </Grid>
                                 </Grid>
 
