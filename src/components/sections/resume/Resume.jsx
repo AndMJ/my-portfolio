@@ -1,6 +1,9 @@
 import {Box, Container, Grid, Link, Typography} from "@mui/material";
 import React from "react";
 
+//TODO:
+// fazer com que texto do body do card esteja em list(com os pontos);
+
 const Resume = ({mode, setMode, Theme}) => {
     return (
         <>
@@ -28,7 +31,7 @@ const Resume = ({mode, setMode, Theme}) => {
                                      backgroundColor: `${Theme.palette.background.default}`
                                  }
                              }}>
-                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://www.apricot.ie/"}>Apricot.ie</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Irlanda</span></Typography>
+                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link underline="hover" target={"_blank"} rel={"noreferrer noopener"} href={"https://www.apricot.ie/"}>Apricot.ie</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Irlanda</span></Typography>
                             <Typography variant={"subtitle1"} sx={{
                                 fontWeight: "bold",
                                 backgroundColor: `${Theme.palette.primary.translucid}`,
@@ -55,7 +58,7 @@ const Resume = ({mode, setMode, Theme}) => {
                                      backgroundColor: `${Theme.palette.background.default}`
                                  }
                              }}>
-                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://strong-answer.com/"}>Strong Answer</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Lagoa</span></Typography>
+                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link underline="hover" target={"_blank"} rel={"noreferrer noopener"} href={"https://strong-answer.com/"}>Strong Answer</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Lagoa</span></Typography>
                             <Typography variant={"subtitle1"} sx={{
                                 fontWeight: "bold",
                                 backgroundColor: `${Theme.palette.primary.translucid}`,
@@ -83,7 +86,7 @@ const Resume = ({mode, setMode, Theme}) => {
                                      backgroundColor: `${Theme.palette.background.default}`
                                  }
                              }}>
-                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://strong-answer.com/"}>Strong Answer</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Lagoa</span></Typography>
+                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link underline="hover" target={"_blank"} rel={"noreferrer noopener"} href={"https://strong-answer.com/"}>Strong Answer</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Lagoa</span></Typography>
                             <Typography variant={"subtitle1"} sx={{
                                 fontWeight: "bold",
                                 backgroundColor: `${Theme.palette.primary.translucid}`,
@@ -114,7 +117,7 @@ const Resume = ({mode, setMode, Theme}) => {
                                      backgroundColor: `${Theme.palette.background.default}`
                                  }
                              }}>
-                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://www.ismat.pt"}>ISMAT - Instituto Superior Manuel Teixeira Gomes</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Portimão</span></Typography>
+                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link underline="hover" target={"_blank"} rel={"noreferrer noopener"} href={"https://www.ismat.pt"}>ISMAT</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Portimão</span></Typography>
                             <Typography variant={"subtitle1"} sx={{
                                 fontWeight: "bold",
                                 backgroundColor: `${Theme.palette.primary.translucid}`,
@@ -140,14 +143,14 @@ const Resume = ({mode, setMode, Theme}) => {
                                      backgroundColor: `${Theme.palette.background.default}`
                                  }
                              }}>
-                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link target={"_blank"} rel={"noreferrer noopener"} href={"https://www.aesilves.pt"}>Escola Secundária de Silves</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Silves</span></Typography>
+                            <Typography variant={"h6"} sx={{textTransform: "", fontWeight: "bold", fontStyle: "italic"}}><Link underline="hover" target={"_blank"} rel={"noreferrer noopener"} href={"https://www.aesilves.pt"}>Escola Secundária de Silves</Link> <span style={{fontWeight:"normal", fontSize: "16px"}}> - Algarve/Silves</span></Typography>
                             <Typography variant={"subtitle1"} sx={{
                                 fontWeight: "bold",
                                 backgroundColor: `${Theme.palette.primary.translucid}`,
                                 display: "inline",
                                 padding: "3px 9px"
                             }}>2016 - 2019</Typography>
-                            <Typography variant={"subtitle1"}>Tecnico de Gestão e Programação de Sistemas Informáticos</Typography>
+                            <Typography variant={"subtitle1"}>Técnico de Gestão e Programação de Sistemas Informáticos</Typography>
                             {/*<Typography variant={"subtitle1"} sx={{fontWeight: "bold"}}>O que aprendi:</Typography>*/}
                         </Box>
 
