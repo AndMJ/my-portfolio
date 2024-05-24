@@ -1,9 +1,40 @@
 import {Box, Container, IconButton, Typography} from "@mui/material";
 import ContrastIcon from "@mui/icons-material/Contrast";
-import React from "react";
+import React, {useRef} from "react";
 
+import gsap from 'gsap';
+import {useGSAP} from "@gsap/react";
+gsap.registerPlugin(useGSAP);
 
 const Hero = ({mode, setMode, Theme}) => {
+
+    const heroText1 = useRef()
+    const heroText2 = useRef()
+    const waves = useRef()
+
+    useGSAP(
+        () => {
+            let textTimeline = gsap.timeline()
+            let wavesTimeline = gsap.timeline()
+
+            textTimeline.from([heroText1.current, heroText2.current], {
+                yPercent: 1000,
+                ease: "elastic.out(1,0.9)",
+                duration: 2,
+                delay: 0.6,
+                stagger: 0.3
+            })
+
+            wavesTimeline.from(waves.current, {
+                yPercent: 100,
+                ease: "power4.out",
+                duration: 2,
+                delay: 0.35
+            })
+        },
+        {}
+    );
+
     return (
         <>
             {/* Button toggle light/dark mode */}
@@ -16,10 +47,10 @@ const Hero = ({mode, setMode, Theme}) => {
             {/* Header */}
             <Box component={"header"} height={"100vh"} alignContent={"center"} >
                 <Container maxWidth="lg" position={"relative"}>
-                    <Typography variant={"h2"} sx={{color: Theme.palette.primary.detail}}>André João</Typography>
-                    <Typography variant={"h2"}>Desenvolvimento Web</Typography>
+                    <Typography ref={heroText1} variant={"h2"} sx={{color: Theme.palette.primary.detail}}>André João</Typography>
+                    <Typography ref={heroText2} variant={"h2"}>Desenvolvimento Web</Typography>
 
-                    <Box position={"absolute"} bottom={0} left={0} right={0}>
+                    <Box position={"absolute"} bottom={0} left={0} right={0} ref={waves}>
                         <svg className="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
                             <defs>
                                 <path id="gentle-wave"

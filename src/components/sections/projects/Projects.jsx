@@ -87,7 +87,7 @@ const Projects = ({mode, setMode, Theme}) => {
         }
     }
 
-    console.log(repos)
+    //console.log(repos)
     return(
         <>
             <Container id={"project-section"} maxWidth={"lg"}>

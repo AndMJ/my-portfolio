@@ -3,16 +3,45 @@ import AboutPhoto from "../../../static/image/me.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import SendIcon from "@mui/icons-material/Send";
-import React from "react";
+import React, {useRef} from "react";
 
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {useGSAP} from "@gsap/react";
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 const About = ({mode, setMode, Theme}) => {
+
+    const About = useRef()
+
+    useGSAP(
+        () => {
+            let Timeline = gsap.timeline({
+                scrollTrigger: {
+                    trigger: About.current,
+                    //markers: true,
+                },
+            })
+
+            Timeline.from(About.current, {
+                //yPercent: 1000,
+                //ease: "elastic.out(1,0.9)",
+                //duration: 2,
+
+                opacity: 0,
+                delay: 0.3,
+            })
+        },
+        {}
+    );
+
     return(
         <>
             <Container id={"about"} maxWidth={"lg"}>
                 <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
                       pb={"5rem"} alignItems={"center"}>
                     <Grid item xs={12} sx={{paddingTop: "0 !important"}}>
-                        <Typography className={"section-title"} variant={"h3"} textAlign={"center"} color={"white"}>Sobre</Typography>
+                        <Typography ref={About} className={"section-title"} variant={"h3"} textAlign={"center"} color={"white"}>Sobre</Typography>
                     </Grid>
 
                     <Grid item xs={12} md={4} textAlign={"center"}>
@@ -56,27 +85,27 @@ const About = ({mode, setMode, Theme}) => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"}>
-                                    Tenho um curso profissional em informática, onde abordei algumas áreas e linguagens como <Chip label="C" variant="filled" size="small"/>, <Chip label="C#" variant="filled" size="small"/> e <Chip label="SQL" variant="filled" size="small"/>. Também utilizei as linguagens Web <Chip label="HTML" variant="filled" size="small"/>, <Chip label="Javascript" variant="filled" size="small"/> e <Chip label="CSS" variant="filled" size="small"/>, e ainda <Chip label="PHP" variant="filled" size="small"/>.
+                                    Tenho um curso profissional em informática, onde abordei algumas áreas e linguagens como <Chip component={"span"} label="C" variant="filled" size="small"/>, <Chip component={"span"} label="C#" variant="filled" size="small"/> e <Chip component={"span"} label="SQL" variant="filled" size="small"/>. Também utilizei as linguagens Web <Chip component={"span"} label="HTML" variant="filled" size="small"/>, <Chip component={"span"} label="Javascript" variant="filled" size="small"/> e <Chip component={"span"} label="CSS" variant="filled" size="small"/>, e ainda <Chip component={"span"} label="PHP" variant="filled" size="small"/>.
                                 </Typography>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"} mt={1}>
-                                    Depois segui para uma Licenciatura em Engenharia Informática onde aprofundei as várias áreas. Abordei linguagens como <Chip label="C" variant="filled" size="small"/>, <Chip label="Python" variant="filled" size="small"/>, <Chip label="Java" variant="filled" size="small"/>, <Chip label="SQL" variant="filled" size="small"/>, e frameworks/libraries como <Chip label="Flask" variant="filled" size="small"/>, <Chip label="JQuery" variant="filled" size="small"/> e <Chip label="Tree.js" variant="filled" size="small"/>.
+                                    Depois segui para uma Licenciatura em Engenharia Informática onde aprofundei as várias áreas. Abordei linguagens como <Chip component={"span"} label="C" variant="filled" size="small"/>, <Chip component={"span"} label="Python" variant="filled" size="small"/>, <Chip component={"span"} label="Java" variant="filled" size="small"/>, <Chip component={"span"} label="SQL" variant="filled" size="small"/>, e frameworks/libraries como <Chip component={"span"} label="Flask" variant="filled" size="small"/>, <Chip component={"span"} label="JQuery" variant="filled" size="small"/> e <Chip component={"span"} label="Tree.js" variant="filled" size="small"/>.
                                 </Typography>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"} mt={1}>
-                                    Para além dos estudos, tenho vindo a aprender outras tecnologias de programação Web, como: <Chip label="React.js" variant="filled" size="small"/>, <Chip label="Node Express" variant="filled" size="small"/>, <Chip label="Java Spring Boot" variant="filled" size="small"/>, <Chip label="AppWrite" variant="filled" size="small"/>, <Chip label="SQL" variant="filled" size="small"/>, <Chip label="React Material UI" variant="filled" size="small"/>, <Chip label="Bootstrap" variant="filled" size="small"/>.
+                                    Para além dos estudos, tenho vindo a aprender outras tecnologias de programação Web, como: <Chip component={"span"} label="React.js" variant="filled" size="small"/>, <Chip component={"span"} label="Node Express" variant="filled" size="small"/>, <Chip component={"span"} label="Java Spring Boot" variant="filled" size="small"/>, <Chip component={"span"} label="AppWrite" variant="filled" size="small"/>, <Chip component={"span"} label="SQL" variant="filled" size="small"/>, <Chip component={"span"} label="React Material UI" variant="filled" size="small"/>, <Chip component={"span"} label="Bootstrap" variant="filled" size="small"/>.
                                 </Typography>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"} mt={1}>
-                                    Nestes projetos que tenho feito, tento sempre implementar uma estrutura <Chip label="MVC" variant="filled" size="small"/> (Model View Controller).
+                                    Nestes projetos que tenho feito, tento sempre implementar uma estrutura <Chip component={"span"} label="MVC" variant="filled" size="small"/> (Model View Controller).
                                 </Typography>
 
                                 <Grid container mt={2} spacing={1}>
                                     <Grid item xs={"auto"}>
-                                        <Chip label="JetBrains Webstorm" variant="filled" size="small"/>
+                                        <Chip component={"span"} label="JetBrains Webstorm" variant="filled" size="small"/>
                                     </Grid>
                                     <Grid item xs={"auto"}>
-                                        <Chip label="Postman" variant="filled" size="small"/>
+                                        <Chip component={"span"} label="Postman" variant="filled" size="small"/>
                                     </Grid>
                                     <Grid item xs={"auto"}>
-                                        <Chip label="Git" variant="filled" size="small"/>
+                                        <Chip component={"span"} label="Git" variant="filled" size="small"/>
                                     </Grid>
                                 </Grid>
 
