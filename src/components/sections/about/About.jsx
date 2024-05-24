@@ -13,6 +13,10 @@ gsap.registerPlugin(ScrollTrigger);
 const About = ({mode, setMode, Theme}) => {
 
     const About = useRef()
+    const sectionImage= useRef();
+    const sectionLinks= useRef();
+    const sectionParagraph= useRef();
+    const sectionSubtitle= useRef();
 
     useGSAP(
         () => {
@@ -22,7 +26,6 @@ const About = ({mode, setMode, Theme}) => {
                     //markers: true,
                 },
             })
-
             Timeline.from(About.current, {
                 //yPercent: 1000,
                 //ease: "elastic.out(1,0.9)",
@@ -30,9 +33,31 @@ const About = ({mode, setMode, Theme}) => {
 
                 opacity: 0,
                 delay: 0.3,
+                duration: 0.3,
+            }).from(".icon-link",{
+                opacity: 0,
+                xPercent: -100,
+                stagger: 0.1,
+                duration: 0.3,
+            }).from([sectionSubtitle.current, sectionParagraph.current],{
+                opacity: 0,
+                stagger: 0.3
+            }).from(".section-footer-chips",{
+                opacity: 0,
+                stagger: 0.1,
+                duration: 0.3
+            })
+
+            gsap.from(sectionImage.current, {
+                scrollTrigger: About.current,
+                yPercent: 100,
+                ease: "elastic.out(1,0.4)",
+                delay: 0.3,
+                opacity: 0,
+                duration: 3,
             })
         },
-        {}
+        {scope: "#about"}
     );
 
     return(
@@ -45,7 +70,7 @@ const About = ({mode, setMode, Theme}) => {
                     </Grid>
 
                     <Grid item xs={12} md={4} textAlign={"center"}>
-                        <Box component={"img"} src={AboutPhoto} borderRadius={"50%"}
+                        <Box ref={sectionImage} component={"img"} src={AboutPhoto} borderRadius={"50%"}
                              sx={{
                                  width: "264px",
                                  /*maxHeight: { xs: 233, md: 167 },
@@ -55,7 +80,7 @@ const About = ({mode, setMode, Theme}) => {
                     </Grid>
 
                     <Grid position={"relative"} item xs={12} md={8}>
-                        <Grid container spacing={3}>
+                        <Grid container spacing={3} ref={sectionLinks}>
                             <Grid item xs={"auto"}>
                                 <Box className={"icon-link"}>
                                     <Link display={"flex"} alignItems={"center"} target={"_blank"} rel={"noreferrer noopener"} href={"https://github.com/AndMJ"}>
@@ -64,6 +89,7 @@ const About = ({mode, setMode, Theme}) => {
                                     </Link>
                                 </Box>
                             </Grid>
+
                             <Grid item xs={"auto"}>
                                 <Box className={"icon-link"}>
                                     <Link display={"flex"} alignItems={"center"} target={"_blank"} rel={"noreferrer noopener"} href={"https://www.linkedin.com/in/andre-joao/"}>
@@ -72,6 +98,7 @@ const About = ({mode, setMode, Theme}) => {
                                     </Link>
                                 </Box>
                             </Grid>
+
                             <Grid item xs={"auto"}>
                                 <Box className={"icon-link"}>
                                     <Link display={"flex"} alignItems={"center"} target={"_blank"} rel={"noreferrer noopener"} href={"mailto:andrejoao070@gmail.com"}>
@@ -80,10 +107,12 @@ const About = ({mode, setMode, Theme}) => {
                                     </Link>
                                 </Box>
                             </Grid>
+
                             <Grid item xs={"auto"}>
-                                <Typography color={"white"} variant={"h6"} sx={{fontStyle: "italic"}}>Licenciatura em Engenharia Informática</Typography>
+                                <Typography ref={sectionSubtitle} color={"white"} variant={"h6"} sx={{fontStyle: "italic"}}>Licenciatura em Engenharia Informática</Typography>
                             </Grid>
-                            <Grid item xs={12}>
+
+                            <Grid item xs={12} ref={sectionParagraph}>
                                 <Typography color={"white"} className={"section-body"} variant={"body1"} textAlign={"justify"}>
                                     Tenho um curso profissional em informática, onde abordei algumas áreas e linguagens como <Chip component={"span"} label="C" variant="filled" size="small"/>, <Chip component={"span"} label="C#" variant="filled" size="small"/> e <Chip component={"span"} label="SQL" variant="filled" size="small"/>. Também utilizei as linguagens Web <Chip component={"span"} label="HTML" variant="filled" size="small"/>, <Chip component={"span"} label="Javascript" variant="filled" size="small"/> e <Chip component={"span"} label="CSS" variant="filled" size="small"/>, e ainda <Chip component={"span"} label="PHP" variant="filled" size="small"/>.
                                 </Typography>
@@ -99,16 +128,15 @@ const About = ({mode, setMode, Theme}) => {
 
                                 <Grid container mt={2} spacing={1}>
                                     <Grid item xs={"auto"}>
-                                        <Chip component={"span"} label="JetBrains Webstorm" variant="filled" size="small"/>
+                                        <Chip className={"section-footer-chips"} component={"span"} label="JetBrains Webstorm" variant="filled" size="small"/>
                                     </Grid>
                                     <Grid item xs={"auto"}>
-                                        <Chip component={"span"} label="Postman" variant="filled" size="small"/>
+                                        <Chip className={"section-footer-chips"} component={"span"} label="Postman" variant="filled" size="small"/>
                                     </Grid>
                                     <Grid item xs={"auto"}>
-                                        <Chip component={"span"} label="Git" variant="filled" size="small"/>
+                                        <Chip className={"section-footer-chips"} component={"span"} label="Git" variant="filled" size="small"/>
                                     </Grid>
                                 </Grid>
-
 
                             </Grid>
                         </Grid>
