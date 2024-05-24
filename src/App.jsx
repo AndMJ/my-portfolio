@@ -1,28 +1,19 @@
-import {Box, Button, Container, Divider, Fab, Grid, Icon, IconButton, Link, Typography} from "@mui/material";
+import "@fontsource/montserrat"
+
+import React, {useEffect, useState} from "react";
+import {Box} from "@mui/material";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import "@fontsource/montserrat"
 import "./App.css"
-import React, {useEffect, useState} from "react";
-
-import ContrastIcon from '@mui/icons-material/Contrast';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import SendIcon from '@mui/icons-material/Send';
-
-import AboutPhoto from "./static/image/me.png"
 import "./static/css/water.css"
 import "./static/css/bubbles.css"
 
-import {Helmet} from "react-helmet";
 const Hero = React.lazy(() => import("./components/sections/hero/Hero.jsx"))
 const About = React.lazy(() => import("./components/sections/about/About.jsx"))
 const Resume = React.lazy(() => import("./components/sections/resume/Resume.jsx"))
 const Projects = React.lazy(() => import("./components/sections/projects/Projects.jsx"))
 const Footer = React.lazy(() => import("./components/sections/footer/Footer.jsx"))
-
-//TODO: create a useContext for the themes
 
 function App() {
     const [mode, setMode] = useState('dark');
