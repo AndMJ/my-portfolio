@@ -10,9 +10,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {useGSAP} from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
+
 const About = ({mode, setMode, Theme}) => {
 
     const About = useRef()
+    const AboutSection = useRef()
     const sectionImage= useRef();
     const sectionLinks= useRef();
     const sectionParagraph= useRef();
@@ -57,12 +59,12 @@ const About = ({mode, setMode, Theme}) => {
                 duration: 3,
             })
         },
-        {scope: "#about"}
+        {scope: AboutSection.current}
     );
 
     return(
         <>
-            <Container id={"about"} maxWidth={"lg"}>
+            <Container ref={AboutSection} id={"about"} maxWidth={"lg"}>
                 <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
                       pb={"5rem"} alignItems={"center"}>
                     <Grid item xs={12} sx={{paddingTop: "0 !important"}}>

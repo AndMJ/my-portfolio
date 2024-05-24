@@ -3,11 +3,9 @@ import React, {useRef} from "react";
 
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 import {useGSAP} from "@gsap/react";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(CSSRulePlugin);
 
 //TODO:
 // fazer com que texto do body do card esteja em list(com os pontos);
@@ -15,7 +13,7 @@ gsap.registerPlugin(CSSRulePlugin);
 const Resume = ({mode, setMode, Theme}) => {
 
     const Resume = useRef()
-    const listTitle= useRef();
+    const ResumeSection= useRef();
 
     useGSAP(
         () => {
@@ -61,12 +59,12 @@ const Resume = ({mode, setMode, Theme}) => {
                 opacity: 0,
             })*/
         },
-        {scope: "#resume"}
+        {scope: ResumeSection.current}
     );
 
     return (
         <>
-            <Container id={"resume"} maxWidth={"lg"}>
+            <Container ref={ResumeSection} id={"resume"} maxWidth={"lg"}>
                 <Grid position={"relative"} container spacing={5} marginTop={0} minHeight={"500px"} pt={"5rem"}
                       pb={"5rem"} alignItems={"start"} color={"white"}>
                     <Grid item xs={12} sx={{paddingTop: "0 !important"}}>
